@@ -21,7 +21,7 @@ jobs:
       - name: Set Output
         id: step1
         run: |
-          echo "test_output=hello world" >> $GITHUB_OUTPUT" 
+          echo "test_output=hello world" >> $GITHUB_OUTPUT
           # Appends the value to GitHub Actions' output file.
 
       # Creates the second step output.
