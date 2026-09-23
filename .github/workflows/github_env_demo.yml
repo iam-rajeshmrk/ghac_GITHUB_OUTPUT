@@ -26,7 +26,7 @@
         # Confirm that MY_VAR contains the expected value.
         - name: use environment variable in another step
           run: |
-            if ["$MY_VAR" = "my_value"]; then
+            if [ "$MY_VAR" = "my_value" ]; then
               echo "MY_VAR" is set correctly."
             else
               echo "MY_VAR is not set"
