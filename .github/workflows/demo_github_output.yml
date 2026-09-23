@@ -3,7 +3,7 @@ name: github output workflow demo
 
 # Allows the workflow to be started manually.
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 # Defines the workflow jobs.
 jobs:
