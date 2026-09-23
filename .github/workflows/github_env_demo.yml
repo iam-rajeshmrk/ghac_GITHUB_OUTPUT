@@ -27,7 +27,7 @@
         - name: use environment variable in another step
           run: |
             if [ "$MY_VAR" = "my_value" ]; then
-              echo "MY_VAR" is set correctly."
+              echo "MY_VAR is set correctly."
             else
               echo "MY_VAR is not set"
             fi
