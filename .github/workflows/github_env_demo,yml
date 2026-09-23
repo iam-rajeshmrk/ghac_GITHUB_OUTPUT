@@ -1,0 +1,37 @@
+  # Name displayed for this workflow in GitHub Actions.
+  name: Github Env workflow demo
+
+  # Run on pushes to main and on pull requests.
+  on:
+    push:
+      branches:
+        -main
+    pull_request:
+
+  jobs:
+    # Job that demonstrates sharing an environment variable between steps.
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        # Persist MY_VAR for all subsequent steps in this job.
+        - name: Set envrionment variable
+          run:
+            echo "MY_VAR=my_value" >> $GITHUB_ENV
+          
+        # Display the value of the environment variable.
+        - name: use environment variable
+          run: |
+            echo "The value is $MY_VAR"
+
+        # Confirm that MY_VAR contains the expected value.
+        - name: use environment variable in another step
+          run: |
+            if ["$MY_VAR" = "my_value"]; then
+              echo "MY_VAR" is set correctly."
+            else
+              echo "MY_VAR is not set"
+            fi
+        # Print all environment variables available in the runner.
+        - name: print all environment variables
+          run: printenv
+        
